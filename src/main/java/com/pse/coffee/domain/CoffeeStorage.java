@@ -1,12 +1,14 @@
 package com.pse.coffee.domain;
 
+import com.pse.coffee.domain.model.CoffeeType;
+
 /**
  * Driven Port for coffee related fetch operations.
  */
-public interface FetchCoffee {
+public interface CoffeeStorage {
 
     /**
      * Fetch coffee types.
      */
-    Object fetchCoffeeTypes(final Object coffeeTypesRequest);
+    boolean isAvailable(final CoffeeType coffeeType);
 }
