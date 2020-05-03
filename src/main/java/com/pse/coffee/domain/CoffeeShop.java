@@ -3,7 +3,7 @@ package com.pse.coffee.domain;
 /**
  * Domain which uses driven ports for handling coffee operations.
  */
-public class CoffeeShop implements UserCommand{
+public class CoffeeShop implements UserCommand {
     private AddCoffeeOrder addCoffeeOrder;
     private FetchCoffee fetchCoffee;
 
