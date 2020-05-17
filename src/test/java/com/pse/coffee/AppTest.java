@@ -1,6 +1,5 @@
 package com.pse.coffee;
 
-import com.pse.coffee.domain.CommandHandler;
 import com.pse.coffee.domain.model.CoffeeOrder;
 import com.pse.coffee.domain.model.CoffeeType;
 import com.pse.coffee.infra.driving.UserCommandHandler;
