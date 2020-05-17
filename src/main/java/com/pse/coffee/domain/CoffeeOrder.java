@@ -1,4 +1,4 @@
-package com.pse.coffee.domain.model;
+package com.pse.coffee.domain;
 
 public class CoffeeOrder {
     private CoffeeType coffeeType;

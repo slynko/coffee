@@ -1,7 +1,7 @@
 package com.pse.coffee;
 
-import com.pse.coffee.domain.model.CoffeeOrder;
-import com.pse.coffee.domain.model.CoffeeType;
+import com.pse.coffee.domain.CoffeeOrder;
+import com.pse.coffee.domain.CoffeeType;
 import com.pse.coffee.infra.driving.UserCommandHandler;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
