@@ -15,7 +15,7 @@ public final class HexagonalArchitectureRules {
             .should().onlyDependOnClassesThat().resideInAnyPackage(
                     "", // Enum inherited methods and Arrays are in the default package :'(
                     "java..",
-                    "org.apache.log4j",
+                    "org.slf4j",
                     "..domain..",
                     "com.pse.commons"
             )
