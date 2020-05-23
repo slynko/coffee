@@ -2,7 +2,7 @@ package com.pse.coffee.infra.driven;
 
 import com.pse.coffee.domain.CoffeeShop;
 import com.pse.coffee.domain.CoffeeStorage;
-import com.pse.coffee.domain.model.CoffeeType;
+import com.pse.coffee.domain.CoffeeType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

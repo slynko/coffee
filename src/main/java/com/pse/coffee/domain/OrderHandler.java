@@ -1,7 +1,5 @@
 package com.pse.coffee.domain;
 
-import com.pse.coffee.domain.model.CoffeeOrder;
-
 /**
  * Driven Port for adding coffee orders.
  */
