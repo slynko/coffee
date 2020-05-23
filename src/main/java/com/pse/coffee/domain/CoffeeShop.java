@@ -1,7 +1,5 @@
 package com.pse.coffee.domain;
 
-import com.pse.coffee.domain.model.CoffeeOrder;
-import com.pse.coffee.domain.model.CoffeeType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
