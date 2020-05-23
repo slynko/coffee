@@ -2,7 +2,8 @@ package com.pse.coffee.domain;
 
 import com.pse.coffee.domain.model.CoffeeOrder;
 import com.pse.coffee.domain.model.CoffeeType;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static java.lang.String.format;
 
@@ -11,7 +12,7 @@ import static java.lang.String.format;
  * Domain which uses driven ports for handling coffee operations.
  */
 public class CoffeeShop implements CommandHandler {
-    private final static Logger LOG = Logger.getLogger(CoffeeShop.class);
+    private final static Logger LOG = LoggerFactory.getLogger(CoffeeShop.class);
 
     private final OrderHandler addCoffeeOrder;
     private final CoffeeStorage fetchCoffee;

@@ -1,8 +1,10 @@
 package com.pse.coffee.infra.driven;
 
+import com.pse.coffee.domain.CoffeeShop;
 import com.pse.coffee.domain.OrderHandler;
 import com.pse.coffee.domain.model.CoffeeOrder;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import static java.lang.String.format;
@@ -12,7 +14,7 @@ import static java.lang.String.format;
  */
 @Service
 public class OrderService implements OrderHandler {
-    private final static Logger LOG = Logger.getLogger(OrderService.class);
+    private final static Logger LOG = LoggerFactory.getLogger(CoffeeShop.class);
 
     // todo add sqlRepository for adding
 
