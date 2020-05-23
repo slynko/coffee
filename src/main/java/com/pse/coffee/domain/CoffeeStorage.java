@@ -1,8 +1,10 @@
 package com.pse.coffee.domain;
 
-/**
- * Driven Port for coffee related fetch operations.
- */
+import com.pse.commons.HexagonalArchitecture;
+
+import static com.pse.commons.HexagonalArchitecture.Port.Type.DRIVEN;
+
+@HexagonalArchitecture.Port(DRIVEN)
 public interface CoffeeStorage {
 
     /**
