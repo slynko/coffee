@@ -22,6 +22,7 @@
         <slf4j.version>1.7.30</slf4j.version>
         <spring.version>5.2.6.RELEASE</spring.version>
         <junit.version>4.12</junit.version>
+        <archunit.version>0.13.1</archunit.version>
     </properties>
 
     <dependencies>
@@ -64,6 +65,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.tngtech.archunit</groupId>
+            <artifactId>archunit-junit4</artifactId>
+            <version>${archunit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
