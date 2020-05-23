@@ -8,7 +8,7 @@ import static com.pse.commons.HexagonalArchitecture.Port.Type.DRIVEN;
 public interface OrderHandler {
 
     /**
-     * Add coffee order.
+     * Add order.
      */
-    void addOrder(final CoffeeOrder coffeeOrder);
+    void addOrder(final Order coffeeOrder);
 }

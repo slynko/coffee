@@ -1,7 +1,7 @@
 package com.pse.coffee;
 
-import com.pse.coffee.domain.CoffeeOrder;
-import com.pse.coffee.domain.CoffeeType;
+import com.pse.coffee.domain.Order;
+import com.pse.coffee.domain.DrinkName;
 import com.pse.coffee.infra.driving.UserCommandHandler;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,6 +18,6 @@ class AppTest {
 
     @Test
     void appTest() {
-        userCommandHandler.handleUserCommand(new CoffeeOrder(CoffeeType.LATTE));
+        userCommandHandler.handleUserCommand(new Order(DrinkName.LATTE));
     }
 }
