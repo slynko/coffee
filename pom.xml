@@ -24,6 +24,9 @@
         <junit.jupiter.version>5.6.0</junit.jupiter.version>
         <assertj.version>3.16.0</assertj.version>
         <archunit.version>0.13.1</archunit.version>
+
+        <!-- Maven plug-in versions -->
+        <surefire-plugin.version>2.22.2</surefire-plugin.version>
     </properties>
 
     <dependencies>
@@ -93,4 +96,13 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire-plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>
