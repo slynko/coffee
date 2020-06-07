@@ -1,14 +1,16 @@
 package com.pse.coffee.domain;
 
+import com.pse.commons.HexagonalArchitecture;
+
 import java.util.Set;
 
-/**
- * Driven Port for coffee catalogue related operations.
- */
+import static com.pse.commons.HexagonalArchitecture.Port.Type.DRIVEN;
+
+@HexagonalArchitecture.Port(DRIVEN)
 public interface Catalogue {
 
     /**
-     * Check if has enough ingredients.
+     * Get ingredients for a drink.
      */
-    Set<IngredientMeasurable> getIngredientsFor(final DrinkName drinkName);
+    Set<IngredientMeasurable> getIngredientsFor(final DrinkName drink);
 }

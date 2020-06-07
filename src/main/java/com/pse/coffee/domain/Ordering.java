@@ -1,6 +1,5 @@
 package com.pse.coffee.domain;
 
-import com.sun.org.apache.regexp.internal.REUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,7 +10,7 @@ import static java.lang.String.format;
 
 
 /**
- * Domain which uses driven ports for handling coffee operations.
+ * Domain logic which uses driven ports for handling coffee operations.
  */
 public class Ordering implements CommandHandler {
     private final static Logger LOG = LoggerFactory.getLogger(Ordering.class);
@@ -28,7 +27,7 @@ public class Ordering implements CommandHandler {
         this.catalogue = catalogue;
     }
 
-    public Result handleUserCommand(Order order) {
+    public OrderResult handleUserCommand(Order order) {
         LOG.info(format("Domain: Start command handling: %s", order));
 
         final DrinkName drinkName = order.getDrinkName();
@@ -38,10 +37,10 @@ public class Ordering implements CommandHandler {
                 .collect(Collectors.toSet());
 
         if (!missingIngredients.isEmpty()) {
-            return Result.INGREDIENT_MISSING;
+            return OrderResult.INGREDIENT_MISSING;
         }
         addOrder.addOrder(order);
         LOG.info(format("Domain: Finish command handling: %s", order));
-        return Result.OK;
+        return OrderResult.OK;
     }
 }

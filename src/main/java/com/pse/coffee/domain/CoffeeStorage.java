@@ -10,5 +10,5 @@ public interface CoffeeStorage {
     /**
      * Fetch coffee types.
      */
-    boolean isAvailable(final CoffeeType coffeeType);
+    boolean isAvailable(final DrinkName drinkName);
 }

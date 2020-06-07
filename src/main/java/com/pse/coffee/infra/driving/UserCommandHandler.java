@@ -1,11 +1,10 @@
 package com.pse.coffee.infra.driving;
 
-import com.pse.coffee.domain.Ordering;
 import com.pse.coffee.domain.CommandHandler;
+import com.pse.coffee.domain.Order;
 import com.pse.commons.HexagonalArchitecture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.pse.coffee.domain.Order;
 import org.springframework.stereotype.Service;
 
 import static java.lang.String.format;
@@ -23,7 +22,7 @@ public class UserCommandHandler {
 
     public void handleUserCommand(final Order order) {
         // handle user command
-        LOG.info(format("Left Adapter: Start user command handling: %s", coffeeOrder));
+        LOG.info(format("Left Adapter: Start user command handling: %s", order));
         userCommand.handleUserCommand(order);
     }
 }

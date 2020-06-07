@@ -1,5 +1,5 @@
 package com.pse.coffee.domain;
 
-public enum Result {
+public enum OrderResult {
     OK, INGREDIENT_MISSING
 }

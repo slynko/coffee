@@ -10,6 +10,6 @@ public interface CommandHandler {
     /**
      * Handle incoming user command.
      */
-    Result handleUserCommand(final Order command);
+    OrderResult handleUserCommand(final Order command);
 
 }
