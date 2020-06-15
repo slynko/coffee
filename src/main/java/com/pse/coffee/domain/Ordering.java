@@ -1,9 +1,11 @@
 package com.pse.coffee.domain;
 
+import com.pse.coffee.domain.catalogue.Recipe;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -17,7 +19,7 @@ import static java.lang.String.format;
 public class Ordering implements CommandHandler {
     private final static Logger LOG = LoggerFactory.getLogger(Ordering.class);
 
-    private final OrderHandler addOrder;
+    private final OrderPreparation addOrder;
     private final Stock stock;
     private final Catalogue catalogue;
 
@@ -26,8 +28,9 @@ public class Ordering implements CommandHandler {
 
         final DrinkName drinkName = order.getDrinkName();
         final Recipe recipe = catalogue.getIngredientsFor(drinkName);
-        final Set<IngredientMeasurable> missingIngredients = recipe.getIngredients().stream()
-                .filter(ingredient -> !stock.hasEnoughOf(ingredient))
+        final Set<Ingredient> missingIngredients = recipe.getIngredients().entrySet().stream()
+                .filter(ingredient -> !stock.hasEnoughOf(ingredient.getKey(), ingredient.getValue()))
+                .map(Map.Entry::getKey)
                 .collect(Collectors.toSet());
 
         if (!missingIngredients.isEmpty()) {

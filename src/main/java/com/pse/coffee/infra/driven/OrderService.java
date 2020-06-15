@@ -1,7 +1,7 @@
 package com.pse.coffee.infra.driven;
 
 import com.pse.coffee.domain.Order;
-import com.pse.coffee.domain.OrderHandler;
+import com.pse.coffee.domain.OrderPreparation;
 import com.pse.commons.HexagonalArchitecture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +11,7 @@ import static java.lang.String.format;
 
 @Service
 @HexagonalArchitecture.RightAdapter
-public class OrderService implements OrderHandler {
+public class OrderService implements OrderPreparation {
     private final static Logger LOG = LoggerFactory.getLogger(OrderService.class);
 
     @Override

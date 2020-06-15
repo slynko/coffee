@@ -1,12 +1,14 @@
 package com.pse.coffee.infra.driven;
 
 import com.pse.coffee.domain.*;
+import com.pse.coffee.domain.catalogue.Quantity;
+import com.pse.coffee.domain.catalogue.Recipe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 import static java.lang.String.format;
 
@@ -21,14 +23,14 @@ public class PhysicalCatalogue implements Catalogue {
     public Recipe getIngredientsFor(DrinkName drinkName) {
         LOG.info(format("Driven Port Adapter: Get ingredients for: %s", drinkName.name()));
 
-        final Set<IngredientMeasurable> ingredients = new HashSet<>();
+        final Map<Ingredient, Quantity> ingredients = new HashMap<>();
         switch (drinkName) {
             case LATTE:
-                ingredients.add(new IngredientMeasurable(Ingredient.COFFEE_BEANS, 7));
-                ingredients.add(new IngredientMeasurable(Ingredient.MILK, 5));
+                ingredients.put(Ingredient.COFFEE_BEANS, new Quantity(7, "g"));
+                ingredients.put(Ingredient.MILK, new Quantity(5, "cl"));
                 break;
             case ESPRESSO:
-                ingredients.add(new IngredientMeasurable(Ingredient.COFFEE_BEANS, 10));
+                ingredients.put(Ingredient.COFFEE_BEANS, new Quantity(10, "g"));
         }
         return new Recipe(ingredients);
     }

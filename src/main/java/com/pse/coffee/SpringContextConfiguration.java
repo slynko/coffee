@@ -8,7 +8,7 @@ import org.springframework.context.annotation.*;
 public class SpringContextConfiguration {
 
     @Bean
-    public CommandHandler commandHandler(final OrderHandler orderHandler, final Stock stock, final Catalogue catalogue) {
+    public CommandHandler commandHandler(final OrderPreparation orderHandler, final Stock stock, final Catalogue catalogue) {
         return new Ordering(orderHandler, stock, catalogue);
     }
 }
