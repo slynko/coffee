@@ -18,7 +18,7 @@ public class PhysicalCatalogue implements Catalogue {
     private final static Logger LOG = LoggerFactory.getLogger(PhysicalCatalogue.class);
 
     @Override
-    public Set<IngredientMeasurable> getIngredientsFor(DrinkName drinkName) {
+    public Recipe getIngredientsFor(DrinkName drinkName) {
         LOG.info(format("Driven Port Adapter: Get ingredients for: %s", drinkName.name()));
 
         final Set<IngredientMeasurable> ingredients = new HashSet<>();
@@ -30,6 +30,6 @@ public class PhysicalCatalogue implements Catalogue {
             case ESPRESSO:
                 ingredients.add(new IngredientMeasurable(Ingredient.COFFEE_BEANS, 10));
         }
-        return ingredients;
+        return new Recipe(ingredients);
     }
 }

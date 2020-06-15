@@ -5,8 +5,6 @@ package com.pse.coffee.domain;
  */
 public interface Stock {
 
-    /**
-     * Check if has enough of the ingredient.
-     */
     boolean hasEnoughOf(final IngredientMeasurable ingredientMeasurable);
+
 }
