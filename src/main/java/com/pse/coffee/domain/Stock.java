@@ -1,12 +1,14 @@
 package com.pse.coffee.domain;
 
 import com.pse.coffee.domain.catalogue.Quantity;
+import com.pse.commons.HexagonalArchitecture;
 
-/**
- * Driven Port for stock related operations.
- */
+import static com.pse.commons.HexagonalArchitecture.Port.Type.DRIVEN;
+
+
+@HexagonalArchitecture.Port(DRIVEN)
 public interface Stock {
 
-    boolean hasEnoughOf(final Ingredient ingredientMeasurable, Quantity quantity);
+    boolean hasEnoughOf(final Ingredient ingredient, Quantity quantity);
 
 }

@@ -23,7 +23,9 @@ public final class HexagonalArchitectureRules {
                     "java..",
                     "org.slf4j",
                     "..domain..",
-                    "com.pse.commons"
+                    "com.pse.commons",
+                    "org.joda.money..",
+                    "lombok.."
             )
             .as("The domain of the hexagon should not depend on infrastructure and technology")
             .because("business rules and technology have distinct lifecycles." +

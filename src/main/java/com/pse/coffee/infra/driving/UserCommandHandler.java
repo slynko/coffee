@@ -1,7 +1,7 @@
 package com.pse.coffee.infra.driving;
 
 import com.pse.coffee.domain.CommandHandler;
-import com.pse.coffee.domain.Order;
+import com.pse.coffee.domain.PreparationDemand;
 import com.pse.commons.HexagonalArchitecture;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -18,7 +18,7 @@ public class UserCommandHandler {
 
     private final CommandHandler userCommand;
 
-    public void handleUserCommand(final Order order) {
+    public void handleUserCommand(final PreparationDemand order) {
         // handle user command
         LOG.info(format("Left Adapter: Start user command handling: %s", order));
         userCommand.handleUserCommand(order);

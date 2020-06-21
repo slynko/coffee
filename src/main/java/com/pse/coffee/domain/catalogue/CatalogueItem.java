@@ -1,11 +1,14 @@
 package com.pse.coffee.domain.catalogue;
 
 import com.pse.coffee.domain.DrinkName;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Value;
+import org.joda.money.Money;
 
-@Data
+@Value
+@AllArgsConstructor
 public class CatalogueItem {
-    private final DrinkName drinkName;
-    private final int price; //todo choose another type ?
-    private final Recipe recipe;
+    DrinkName drink;
+    Money price;
+    Recipe recipe;
 }

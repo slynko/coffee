@@ -1,6 +1,6 @@
 package com.pse.coffee.domain;
 
-import com.pse.coffee.domain.catalogue.Recipe;
+import com.pse.coffee.domain.catalogue.CatalogueItem;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,16 +19,16 @@ import static java.lang.String.format;
 public class Ordering implements CommandHandler {
     private final static Logger LOG = LoggerFactory.getLogger(Ordering.class);
 
-    private final OrderPreparation addOrder;
+    private final OrderPreparation preparation;
     private final Stock stock;
     private final Catalogue catalogue;
 
-    public OrderResult handleUserCommand(Order order) {
+    public OrderResult handleUserCommand(PreparationDemand order) {
         LOG.info(format("Domain: Start command handling: %s", order));
 
         final DrinkName drinkName = order.getDrinkName();
-        final Recipe recipe = catalogue.getIngredientsFor(drinkName);
-        final Set<Ingredient> missingIngredients = recipe.getIngredients().entrySet().stream()
+        final CatalogueItem catalogueItem = catalogue.getItemFor(drinkName);
+        final Set<Ingredient> missingIngredients = catalogueItem.getRecipe().getIngredients().entrySet().stream()
                 .filter(ingredient -> !stock.hasEnoughOf(ingredient.getKey(), ingredient.getValue()))
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toSet());
@@ -36,7 +36,7 @@ public class Ordering implements CommandHandler {
         if (!missingIngredients.isEmpty()) {
             return OrderResult.INGREDIENT_MISSING;
         }
-        addOrder.addOrder(order);
+        preparation.addOrder(order);
         LOG.info(format("Domain: Finish command handling: %s", order));
         return OrderResult.OK;
     }
