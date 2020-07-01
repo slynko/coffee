@@ -1,14 +1,13 @@
 package com.pse.coffee.domain;
 
+import com.pse.coffee.domain.catalogue.CatalogueItem;
 import com.pse.commons.HexagonalArchitecture;
 
 import static com.pse.commons.HexagonalArchitecture.Port.Type.DRIVEN;
 
 @HexagonalArchitecture.Port(DRIVEN)
-public interface CoffeeStorage {
+public interface Catalogue {
 
-    /**
-     * Fetch coffee types.
-     */
-    boolean isAvailable(final CoffeeType coffeeType);
+    CatalogueItem getItemFor(final DrinkName drink);
+
 }

@@ -24,12 +24,21 @@
         <junit.jupiter.version>5.6.0</junit.jupiter.version>
         <assertj.version>3.16.0</assertj.version>
         <archunit.version>0.13.1</archunit.version>
+        <lombok.version>1.18.12</lombok.version>
+        <joda-money.version>1.0.1</joda-money.version>
 
         <!-- Maven plug-in versions -->
         <surefire-plugin.version>2.22.2</surefire-plugin.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
@@ -56,6 +65,13 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+
+        <!-- Money -->
+        <dependency>
+            <groupId>org.joda</groupId>
+            <artifactId>joda-money</artifactId>
+            <version>${joda-money.version}</version>
         </dependency>
 
         <!-- TEST -->

@@ -5,10 +5,7 @@ import com.pse.commons.HexagonalArchitecture;
 import static com.pse.commons.HexagonalArchitecture.Port.Type.DRIVEN;
 
 @HexagonalArchitecture.Port(DRIVEN)
-public interface OrderHandler {
+public interface OrderPreparation {
 
-    /**
-     * Add coffee order.
-     */
-    void addOrder(final CoffeeOrder coffeeOrder);
+    void addOrder(final PreparationDemand order);
 }

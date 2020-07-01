@@ -9,7 +9,7 @@ class OrderHandlerTest {
 
     @Test
     void should_be_a_driven_port() {
-        assertThat(OrderHandler.class).is(aDrivenPort());
+        assertThat(OrderPreparation.class).is(aDrivenPort());
     }
 
 }

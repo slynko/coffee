@@ -1,5 +1,5 @@
 package com.pse.coffee.domain;
 
-public enum CoffeeType {
+public enum DrinkName {
     LATTE, ESPRESSO
 }
