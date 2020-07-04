@@ -1,6 +1,8 @@
 package com.pse.coffee.infra;
 
 import com.pse.coffee.domain.*;
+import com.pse.coffee.domain.catalogue.Catalogue;
+import com.pse.coffee.domain.preparation.OrderPreparation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

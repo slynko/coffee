@@ -1,6 +1,6 @@
-package com.pse.coffee.domain;
+package com.pse.coffee.domain.catalogue;
 
-import com.pse.coffee.domain.catalogue.CatalogueItem;
+import com.pse.coffee.domain.DrinkName;
 import com.pse.commons.HexagonalArchitecture;
 
 import java.util.Optional;

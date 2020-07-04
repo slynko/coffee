@@ -1,6 +1,6 @@
 package com.pse.coffee.domain;
 
-import com.pse.coffee.domain.catalogue.Quantity;
+import com.pse.coffee.domain.recipe.Quantity;
 import com.pse.commons.HexagonalArchitecture;
 
 import static com.pse.commons.HexagonalArchitecture.Port.Type.DRIVEN;

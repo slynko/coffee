@@ -1,5 +1,7 @@
-package com.pse.coffee.domain;
+package com.pse.coffee.domain.preparation;
 
+import com.pse.coffee.domain.DrinkName;
+import com.pse.coffee.domain.recipe.Recipe;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NonNull;
@@ -10,8 +12,8 @@ import static lombok.AccessLevel.PRIVATE;
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
-public class PreparationDemand {
-    @NonNull DrinkName drink;
-    int quantity;
+public class Drink {
+    @NonNull DrinkName name;
+    @NonNull Recipe recipe;
     @NonNull String personName;
 }

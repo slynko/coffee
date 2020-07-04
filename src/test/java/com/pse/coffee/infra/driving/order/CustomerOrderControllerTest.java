@@ -1,7 +1,7 @@
 package com.pse.coffee.infra.driving.order;
 
 import com.pse.coffee.domain.CustomerOrderHandler;
-import com.pse.coffee.domain.PreparationDemand;
+import com.pse.coffee.domain.Order;
 import org.junit.jupiter.api.Test;
 
 import static com.pse.coffee.domain.DrinkName.ESPRESSO;
@@ -24,7 +24,7 @@ class CustomerOrderControllerTest {
 
     @Test
     void should_delegate_user_order_processing_to_domain() {
-        final PreparationDemand order = PreparationDemand.builder()
+        final Order order = Order.builder()
                 .personName("Vincent")
                 .drink(ESPRESSO)
                 .quantity(2)

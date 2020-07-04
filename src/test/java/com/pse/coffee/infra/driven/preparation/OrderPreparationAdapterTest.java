@@ -16,7 +16,7 @@ class OrderPreparationAdapterTest {
     }
 
     @Test
-    void should_fail_to_add_null_order() {
+    void should_fail_to_prepare_null_drink() {
         assertThatNullPointerException()
                 .isThrownBy(() -> adapter.prepare(null));
     }

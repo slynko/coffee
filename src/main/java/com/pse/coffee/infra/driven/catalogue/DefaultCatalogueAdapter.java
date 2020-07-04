@@ -1,10 +1,10 @@
 package com.pse.coffee.infra.driven.catalogue;
 
-import com.pse.coffee.domain.Catalogue;
+import com.pse.coffee.domain.catalogue.Catalogue;
 import com.pse.coffee.domain.DrinkName;
 import com.pse.coffee.domain.catalogue.CatalogueItem;
-import com.pse.coffee.domain.catalogue.Quantity;
-import com.pse.coffee.domain.catalogue.Recipe;
+import com.pse.coffee.domain.recipe.Quantity;
+import com.pse.coffee.domain.recipe.Recipe;
 import com.pse.commons.HexagonalArchitecture;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
@@ -17,8 +17,8 @@ import static com.pse.coffee.domain.DrinkName.ESPRESSO;
 import static com.pse.coffee.domain.DrinkName.LATTE;
 import static com.pse.coffee.domain.Ingredient.COFFEE_BEANS;
 import static com.pse.coffee.domain.Ingredient.MILK;
-import static com.pse.coffee.domain.catalogue.Unit.CL;
-import static com.pse.coffee.domain.catalogue.Unit.GRAM;
+import static com.pse.coffee.domain.recipe.Unit.CL;
+import static com.pse.coffee.domain.recipe.Unit.GRAM;
 import static org.joda.money.CurrencyUnit.EUR;
 
 @Slf4j

@@ -1,8 +1,8 @@
-package com.pse.coffee.domain.catalogue;
+package com.pse.coffee.domain.recipe;
 
 import org.junit.jupiter.api.Test;
 
-import static com.pse.coffee.domain.catalogue.Unit.GRAM;
+import static com.pse.coffee.domain.recipe.Unit.GRAM;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class QuantityTest {

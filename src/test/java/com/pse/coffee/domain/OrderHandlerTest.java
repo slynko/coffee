@@ -1,5 +1,6 @@
 package com.pse.coffee.domain;
 
+import com.pse.coffee.domain.preparation.OrderPreparation;
 import org.junit.jupiter.api.Test;
 
 import static com.pse.commons.HexagonalArchitectureConditions.aDrivenPort;

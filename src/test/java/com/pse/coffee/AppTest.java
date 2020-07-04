@@ -1,6 +1,6 @@
 package com.pse.coffee;
 
-import com.pse.coffee.domain.PreparationDemand;
+import com.pse.coffee.domain.Order;
 import com.pse.coffee.infra.SpringContextConfiguration;
 import com.pse.coffee.infra.driving.order.CustomerOrderController;
 import org.junit.jupiter.api.Test;
@@ -21,7 +21,7 @@ class AppTest {
 
     @Test
     void appTest() {
-        final String result = userCommandHandler.processOrder(PreparationDemand.builder()
+        final String result = userCommandHandler.processOrder(Order.builder()
                 .drink(LATTE)
                 .quantity(1)
                 .personName("John")

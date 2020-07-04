@@ -1,4 +1,4 @@
-package com.pse.coffee.domain;
+package com.pse.coffee.domain.preparation;
 
 import org.junit.jupiter.api.Test;
 

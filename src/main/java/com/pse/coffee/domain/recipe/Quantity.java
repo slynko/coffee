@@ -1,4 +1,4 @@
-package com.pse.coffee.domain.catalogue;
+package com.pse.coffee.domain.recipe;
 
 import lombok.NonNull;
 import lombok.Value;

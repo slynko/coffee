@@ -1,4 +1,4 @@
-package com.pse.coffee.domain.catalogue;
+package com.pse.coffee.domain.recipe;
 
 import com.pse.coffee.domain.Ingredient;
 import lombok.Builder;
