@@ -1,9 +1,9 @@
 package com.pse.coffee;
 
-import com.pse.coffee.domain.Invoice;
-import com.pse.coffee.domain.Order;
 import com.pse.coffee.infra.SpringContextConfiguration;
 import com.pse.coffee.infra.driving.order.CustomerOrderController;
+import com.pse.coffee.infra.driving.order.InvoiceDto;
+import com.pse.coffee.infra.driving.order.OrderDto;
 import org.joda.money.Money;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -24,13 +24,9 @@ class AppTest {
 
     @Test
     void appTest() {
-        final Order order = Order.builder()
-                .drink(LATTE)
-                .quantity(1)
-                .personName("John")
-                .build();
-        final Money expectedCost = Money.of(EUR, 5.);
-        final Invoice invoice = userCommandHandler.processOrder(order);
+        final OrderDto order = new OrderDto(LATTE, 3, "John");
+        final Money expectedCost = Money.of(EUR, 15.);
+        final InvoiceDto invoice = userCommandHandler.processOrder(order);
 
         assertThat(invoice.getTotalCost()).isEqualTo(expectedCost);
     }

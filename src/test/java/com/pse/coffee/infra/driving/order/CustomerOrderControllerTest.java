@@ -2,7 +2,6 @@ package com.pse.coffee.infra.driving.order;
 
 import com.pse.coffee.domain.CustomerOrderHandler;
 import com.pse.coffee.domain.Invoice;
-import com.pse.coffee.domain.Order;
 import org.joda.money.Money;
 import org.junit.jupiter.api.Test;
 
@@ -16,8 +15,8 @@ import static org.mockito.Mockito.mock;
 
 class CustomerOrderControllerTest {
 
-    private final CustomerOrderHandler service = mock(CustomerOrderHandler.class);
-    private final CustomerOrderController adapter = new CustomerOrderController(service);
+    private final CustomerOrderHandler customerOrderHandler = mock(CustomerOrderHandler.class);
+    private final CustomerOrderController adapter = new CustomerOrderController(customerOrderHandler);
 
     @Test
     void should_be_a_left_adapter() {
@@ -26,19 +25,15 @@ class CustomerOrderControllerTest {
 
     @Test
     void should_delegate_user_order_processing_to_domain() {
-        final Order order = Order.builder()
-                .personName("Vincent")
-                .drink(ESPRESSO)
-                .quantity(2)
-                .build();
+        final OrderDto order = new OrderDto( ESPRESSO, 2, "Vincent");
         final Invoice invoice = Invoice.builder()
                 .drink(ESPRESSO)
                 .quantity(2)
                 .unitCost(Money.of(EUR, 10))
                 .build();
-        given(service.process(order)).willReturn(invoice);
+        given(customerOrderHandler.process(order.toDomain())).willReturn(invoice);
 
-        assertThat(adapter.processOrder(order)).isEqualTo(invoice);
+        assertThat(adapter.processOrder(order)).isEqualTo(InvoiceDto.from(invoice));
     }
 
     @Test
