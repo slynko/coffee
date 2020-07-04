@@ -17,18 +17,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatNullPointerException;
 import static org.joda.money.CurrencyUnit.EUR;
 
-class PhysicalCatalogueTest {
+class DefaultCatalogueAdapterTest {
 
-    private final PhysicalCatalogue adapter = new PhysicalCatalogue();
+    private final DefaultCatalogueAdapter adapter = new DefaultCatalogueAdapter();
 
     @Test
     void should_be_a_right_adapter() {
-        assertThat(PhysicalCatalogue.class).is(aRightAdapter());
+        assertThat(DefaultCatalogueAdapter.class).is(aRightAdapter());
     }
 
     @Test
     void should_get_item_for_LATTE() {
-        assertThat(adapter.getItemFor(LATTE)).isEqualTo(CatalogueItem.builder()
+        assertThat(adapter.find(LATTE)).contains(CatalogueItem.builder()
                 .drink(LATTE)
                 .unitCost(Money.of(EUR, 5))
                 .recipe(Recipe.builder()
@@ -40,7 +40,7 @@ class PhysicalCatalogueTest {
 
     @Test
     void should_get_item_for_ESPRESSO() {
-        assertThat(adapter.getItemFor(ESPRESSO)).isEqualTo(CatalogueItem.builder()
+        assertThat(adapter.find(ESPRESSO)).contains(CatalogueItem.builder()
                 .drink(ESPRESSO)
                 .unitCost(Money.of(EUR, 3))
                 .recipe(Recipe.builder()
@@ -52,7 +52,7 @@ class PhysicalCatalogueTest {
     @Test
     void should_fail_to_get_item_for_null_drink() {
         assertThatNullPointerException()
-                .isThrownBy(() -> adapter.getItemFor(null));
+                .isThrownBy(() -> adapter.find(null));
     }
 
 }

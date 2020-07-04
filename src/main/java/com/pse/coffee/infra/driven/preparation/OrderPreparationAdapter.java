@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @HexagonalArchitecture.RightAdapter
-public final class OrderService implements OrderPreparation {
+public final class OrderPreparationAdapter implements OrderPreparation {
     @Override
-    public void addOrder(@NonNull final PreparationDemand coffeeOrder) {
-        log.info("Right Adapter: Add order: {}", coffeeOrder);
+    public void prepare(@NonNull final PreparationDemand coffeeOrder) {
+        log.info("Right Adapter: Prepare order: {}", coffeeOrder);
     }
 }

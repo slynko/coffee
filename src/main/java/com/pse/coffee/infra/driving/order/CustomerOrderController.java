@@ -1,6 +1,6 @@
 package com.pse.coffee.infra.driving.order;
 
-import com.pse.coffee.domain.CommandHandler;
+import com.pse.coffee.domain.CustomerOrderHandler;
 import com.pse.coffee.domain.PreparationDemand;
 import com.pse.commons.HexagonalArchitecture;
 import lombok.AllArgsConstructor;
@@ -12,11 +12,11 @@ import org.springframework.stereotype.Service;
 @HexagonalArchitecture.LeftAdapter
 @Slf4j
 @AllArgsConstructor
-public final class UserCommandHandler {
-    private final CommandHandler userCommand;
+public final class CustomerOrderController {
+    private final CustomerOrderHandler userCommand;
 
-    public String handleUserCommand(@NonNull final PreparationDemand order) {
-        log.info("Left Adapter: Start user command handling: {}", order);
-        return userCommand.handleUserCommand(order).name();
+    public String processOrder(@NonNull final PreparationDemand order) {
+        log.info("Left Adapter: Start order processing: {}", order);
+        return userCommand.process(order).name();
     }
 }

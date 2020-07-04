@@ -9,13 +9,13 @@ import static com.pse.commons.HexagonalArchitectureConditions.aRightAdapter;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatNullPointerException;
 
-class PhysicalStockTest {
+class StockStubAdapterTest {
 
-    private final PhysicalStock adapter = new PhysicalStock();
+    private final StockStubAdapter adapter = new StockStubAdapter();
 
     @Test
     void should_be_a_right_adapter() {
-        assertThat(PhysicalStock.class).is(aRightAdapter());
+        assertThat(StockStubAdapter.class).is(aRightAdapter());
     }
 
     @Test

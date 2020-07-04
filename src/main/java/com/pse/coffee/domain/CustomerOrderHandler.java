@@ -5,6 +5,6 @@ import com.pse.commons.HexagonalArchitecture;
 import static com.pse.commons.HexagonalArchitecture.Port.Type.DRIVING;
 
 @HexagonalArchitecture.Port(DRIVING)
-public interface CommandHandler {
-    OrderResult handleUserCommand(PreparationDemand order);
+public interface CustomerOrderHandler {
+    OrderResult process(PreparationDemand order);
 }

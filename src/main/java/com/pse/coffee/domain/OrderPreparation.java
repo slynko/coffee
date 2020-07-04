@@ -6,5 +6,5 @@ import static com.pse.commons.HexagonalArchitecture.Port.Type.DRIVEN;
 
 @HexagonalArchitecture.Port(DRIVEN)
 public interface OrderPreparation {
-    void addOrder(PreparationDemand order);
+    void prepare(PreparationDemand order);
 }

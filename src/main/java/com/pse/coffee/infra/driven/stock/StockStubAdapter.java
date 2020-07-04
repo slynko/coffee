@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @HexagonalArchitecture.RightAdapter
-public final class PhysicalStock implements Stock {
+public final class StockStubAdapter implements Stock {
     @Override
     public boolean hasEnoughOf(@NonNull final Ingredient ingredient, @NonNull final Quantity requiredQuantity) {
         log.info("Right adapter: Check stock for ingredient: {}, requiredQuantity: {}", ingredient, requiredQuantity);

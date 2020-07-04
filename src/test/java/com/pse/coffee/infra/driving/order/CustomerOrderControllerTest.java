@@ -1,6 +1,6 @@
 package com.pse.coffee.infra.driving.order;
 
-import com.pse.coffee.domain.CommandHandler;
+import com.pse.coffee.domain.CustomerOrderHandler;
 import com.pse.coffee.domain.PreparationDemand;
 import org.junit.jupiter.api.Test;
 
@@ -12,14 +12,14 @@ import static org.assertj.core.api.Assertions.assertThatNullPointerException;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 
-class UserCommandHandlerTest {
+class CustomerOrderControllerTest {
 
-    private final CommandHandler service = mock(CommandHandler.class);
-    private final UserCommandHandler adapter = new UserCommandHandler(service);
+    private final CustomerOrderHandler service = mock(CustomerOrderHandler.class);
+    private final CustomerOrderController adapter = new CustomerOrderController(service);
 
     @Test
     void should_be_a_left_adapter() {
-        assertThat(UserCommandHandler.class).is(aLeftAdapter());
+        assertThat(CustomerOrderController.class).is(aLeftAdapter());
     }
 
     @Test
@@ -29,15 +29,15 @@ class UserCommandHandlerTest {
                 .drink(ESPRESSO)
                 .quantity(2)
                 .build();
-        given(service.handleUserCommand(order)).willReturn(OK);
+        given(service.process(order)).willReturn(OK);
 
-        assertThat(adapter.handleUserCommand(order)).isEqualTo("OK");
+        assertThat(adapter.processOrder(order)).isEqualTo("OK");
     }
 
     @Test
     void should_fail_to_process_null_user_order() {
         assertThatNullPointerException()
-                .isThrownBy(() -> adapter.handleUserCommand(null));
+                .isThrownBy(() -> adapter.processOrder(null));
     }
 
 }

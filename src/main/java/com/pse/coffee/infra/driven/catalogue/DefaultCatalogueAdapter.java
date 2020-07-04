@@ -11,43 +11,44 @@ import lombok.extern.slf4j.Slf4j;
 import org.joda.money.Money;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 import static com.pse.coffee.domain.DrinkName.ESPRESSO;
 import static com.pse.coffee.domain.DrinkName.LATTE;
 import static com.pse.coffee.domain.Ingredient.COFFEE_BEANS;
 import static com.pse.coffee.domain.Ingredient.MILK;
 import static com.pse.coffee.domain.catalogue.Unit.CL;
 import static com.pse.coffee.domain.catalogue.Unit.GRAM;
-import static java.lang.String.format;
 import static org.joda.money.CurrencyUnit.EUR;
 
 @Slf4j
 @Service
 @HexagonalArchitecture.RightAdapter
-public final class PhysicalCatalogue implements Catalogue {
+public final class DefaultCatalogueAdapter implements Catalogue {
 
     @Override
-    public CatalogueItem getItemFor(@NonNull final DrinkName drink) {
-        log.info("Right adapter: Get ingredients for: {}", drink);
+    public Optional<CatalogueItem> find(@NonNull final DrinkName drink) {
+        log.info("Right adapter: Find {} in catalogue", drink);
 
         switch (drink) {
             case LATTE:
-                return CatalogueItem.builder()
+                return Optional.of(CatalogueItem.builder()
                         .drink(LATTE)
                         .unitCost(Money.of(EUR, 5))
                         .recipe(Recipe.builder()
                                 .ingredient(COFFEE_BEANS, new Quantity(7, GRAM))
                                 .ingredient(MILK, new Quantity(5, CL))
                                 .build())
-                        .build();
+                        .build());
             case ESPRESSO:
-                return CatalogueItem.builder()
+                return Optional.of(CatalogueItem.builder()
                         .drink(ESPRESSO)
                         .unitCost(Money.of(EUR, 3))
                         .recipe(Recipe.builder()
                                 .ingredient(COFFEE_BEANS, new Quantity(10, GRAM))
                                 .build())
-                        .build();
+                        .build());
         }
-        throw new IllegalArgumentException(format("No drink name found: %s", drink));
+        return Optional.empty();
     }
 }
