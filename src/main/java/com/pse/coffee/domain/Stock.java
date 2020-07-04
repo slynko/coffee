@@ -5,10 +5,7 @@ import com.pse.commons.HexagonalArchitecture;
 
 import static com.pse.commons.HexagonalArchitecture.Port.Type.DRIVEN;
 
-
 @HexagonalArchitecture.Port(DRIVEN)
 public interface Stock {
-
-    boolean hasEnoughOf(final Ingredient ingredient, Quantity quantity);
-
+    boolean hasEnoughOf(Ingredient ingredient, Quantity quantity);
 }

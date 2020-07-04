@@ -4,21 +4,17 @@ import com.pse.coffee.domain.Ingredient;
 import com.pse.coffee.domain.Stock;
 import com.pse.coffee.domain.catalogue.Quantity;
 import com.pse.commons.HexagonalArchitecture;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.NonNull;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import static com.pse.commons.HexagonalArchitecture.Port.Type.DRIVEN;
-import static java.lang.String.format;
-
-@HexagonalArchitecture.Port(DRIVEN)
+@Slf4j
 @Service
-public class PhysicalStock implements Stock {
-    private final static Logger LOG = LoggerFactory.getLogger(PhysicalStock.class);
-
+@HexagonalArchitecture.RightAdapter
+public final class PhysicalStock implements Stock {
     @Override
-    public boolean hasEnoughOf(Ingredient ingredient, Quantity quantity) {
-        LOG.info(format("Driven Port Adapter: Verify if has enough of the ingredient: %s, quantity: %s", ingredient.name(), quantity));
+    public boolean hasEnoughOf(@NonNull final Ingredient ingredient, @NonNull final Quantity requiredQuantity) {
+        log.info("Right adapter: Check stock for ingredient: {}, requiredQuantity: {}", ingredient, requiredQuantity);
         return true;
     }
 }

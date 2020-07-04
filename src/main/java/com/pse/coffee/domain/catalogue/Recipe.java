@@ -1,14 +1,16 @@
 package com.pse.coffee.domain.catalogue;
 
 import com.pse.coffee.domain.Ingredient;
-import lombok.*;
+import lombok.Builder;
+import lombok.NonNull;
+import lombok.Singular;
+import lombok.Value;
 
 import java.util.Map;
 
 @Value
 @Builder
 public class Recipe {
-    @NonNull
     @Singular
-    Map<Ingredient, Quantity> ingredients;
+    @NonNull Map<Ingredient, Quantity> ingredients;
 }

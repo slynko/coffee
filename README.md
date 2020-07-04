@@ -24,7 +24,3 @@ This translates into 4 ports:
 * A driven port, Catalogue, exposes the recipes along with their price.
 * A driven port, Stock, exposes current stock status by calling the dedicated service.
 * A driven port, Order Preparation, sends the order to the service in charge of order preparation.
-
-## Next steps
-
-- Add DB repositories to adapters, file storage ?

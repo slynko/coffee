@@ -1,15 +1,13 @@
 package com.pse.coffee.domain.catalogue;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum Unit {
-    GRAM("g"), CL("cl");
+    GRAM("g"),
+    CL("cl");
 
-    private Unit(String name) {
-        this.name = name;
-    }
-
-    private String name;
-
-    public String getName() {
-        return name;
-    }
+    private final String name;
 }

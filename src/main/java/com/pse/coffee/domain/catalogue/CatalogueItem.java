@@ -2,13 +2,18 @@ package com.pse.coffee.domain.catalogue;
 
 import com.pse.coffee.domain.DrinkName;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NonNull;
 import lombok.Value;
 import org.joda.money.Money;
 
+import static lombok.AccessLevel.PRIVATE;
+
 @Value
-@AllArgsConstructor
+@Builder
+@AllArgsConstructor(access = PRIVATE)
 public class CatalogueItem {
-    DrinkName drink;
-    Money price;
-    Recipe recipe;
+    @NonNull DrinkName drink;
+    @NonNull Money unitCost;
+    @NonNull Recipe recipe;
 }

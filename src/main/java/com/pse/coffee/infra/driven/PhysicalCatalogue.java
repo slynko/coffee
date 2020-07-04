@@ -1,47 +1,53 @@
 package com.pse.coffee.infra.driven;
 
-import com.pse.coffee.domain.*;
-import com.pse.coffee.domain.catalogue.*;
+import com.pse.coffee.domain.Catalogue;
+import com.pse.coffee.domain.DrinkName;
+import com.pse.coffee.domain.catalogue.CatalogueItem;
+import com.pse.coffee.domain.catalogue.Quantity;
+import com.pse.coffee.domain.catalogue.Recipe;
+import com.pse.commons.HexagonalArchitecture;
+import lombok.NonNull;
+import lombok.extern.slf4j.Slf4j;
 import org.joda.money.Money;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.pse.coffee.domain.DrinkName.ESPRESSO;
 import static com.pse.coffee.domain.DrinkName.LATTE;
+import static com.pse.coffee.domain.Ingredient.COFFEE_BEANS;
+import static com.pse.coffee.domain.Ingredient.MILK;
 import static com.pse.coffee.domain.catalogue.Unit.CL;
 import static com.pse.coffee.domain.catalogue.Unit.GRAM;
 import static java.lang.String.format;
 import static org.joda.money.CurrencyUnit.EUR;
 
-/**
- * Driven Port Adapter for catalog related operations.
- */
+@Slf4j
 @Service
-public class PhysicalCatalogue implements Catalogue {
-    private final static Logger LOG = LoggerFactory.getLogger(PhysicalCatalogue.class);
+@HexagonalArchitecture.RightAdapter
+public final class PhysicalCatalogue implements Catalogue {
 
     @Override
-    public CatalogueItem getItemFor(DrinkName drinkName) {
-        LOG.info(format("Driven Port Adapter: Get ingredients for: %s", drinkName.name()));
+    public CatalogueItem getItemFor(@NonNull final DrinkName drink) {
+        log.info("Right adapter: Get ingredients for: {}", drink);
 
-        final Map<Ingredient, Quantity> ingredients = new HashMap<>();
-        switch (drinkName) {
+        switch (drink) {
             case LATTE:
-                return new CatalogueItem(LATTE, Money.of(EUR, 5),
-                        Recipe.builder()
-                                .ingredient(Ingredient.COFFEE_BEANS, new Quantity(7, GRAM))
-                                .ingredient(Ingredient.MILK, new Quantity(5, CL))
-                                .build());
+                return CatalogueItem.builder()
+                        .drink(LATTE)
+                        .unitCost(Money.of(EUR, 5))
+                        .recipe(Recipe.builder()
+                                .ingredient(COFFEE_BEANS, new Quantity(7, GRAM))
+                                .ingredient(MILK, new Quantity(5, CL))
+                                .build())
+                        .build();
             case ESPRESSO:
-                return new CatalogueItem(ESPRESSO, Money.of(EUR, 3),
-                        Recipe.builder()
-                                .ingredient(Ingredient.COFFEE_BEANS, new Quantity(10, GRAM))
-                                .build());
+                return CatalogueItem.builder()
+                        .drink(ESPRESSO)
+                        .unitCost(Money.of(EUR, 3))
+                        .recipe(Recipe.builder()
+                                .ingredient(COFFEE_BEANS, new Quantity(10, GRAM))
+                                .build())
+                        .build();
         }
-        throw new IllegalArgumentException(format("No drink name found: %s", drinkName.name()));
+        throw new IllegalArgumentException(format("No drink name found: %s", drink));
     }
 }

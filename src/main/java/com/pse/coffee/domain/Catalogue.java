@@ -7,7 +7,5 @@ import static com.pse.commons.HexagonalArchitecture.Port.Type.DRIVEN;
 
 @HexagonalArchitecture.Port(DRIVEN)
 public interface Catalogue {
-
-    CatalogueItem getItemFor(final DrinkName drink);
-
+    CatalogueItem getItemFor(DrinkName drink);
 }

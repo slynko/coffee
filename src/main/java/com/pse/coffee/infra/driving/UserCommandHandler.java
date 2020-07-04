@@ -4,23 +4,19 @@ import com.pse.coffee.domain.CommandHandler;
 import com.pse.coffee.domain.PreparationDemand;
 import com.pse.commons.HexagonalArchitecture;
 import lombok.AllArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.NonNull;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
-import static java.lang.String.format;
 
 @Service
 @HexagonalArchitecture.LeftAdapter
+@Slf4j
 @AllArgsConstructor
-public class UserCommandHandler {
-    private final static Logger LOG = LoggerFactory.getLogger(UserCommandHandler.class);
-
+public final class UserCommandHandler {
     private final CommandHandler userCommand;
 
-    public void handleUserCommand(final PreparationDemand order) {
-        // handle user command
-        LOG.info(format("Left Adapter: Start user command handling: %s", order));
-        userCommand.handleUserCommand(order);
+    public String handleUserCommand(@NonNull final PreparationDemand order) {
+        log.info("Left Adapter: Start user command handling: {}", order);
+        return userCommand.handleUserCommand(order).name();
     }
 }
