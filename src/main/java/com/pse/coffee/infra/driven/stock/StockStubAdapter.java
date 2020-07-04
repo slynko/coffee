@@ -1,6 +1,6 @@
 package com.pse.coffee.infra.driven.stock;
 
-import com.pse.coffee.domain.Ingredient;
+import com.pse.coffee.domain.recipe.Ingredient;
 import com.pse.coffee.domain.Stock;
 import com.pse.coffee.domain.recipe.Quantity;
 import com.pse.commons.HexagonalArchitecture;

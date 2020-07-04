@@ -2,20 +2,18 @@ package com.pse.coffee.domain;
 
 import com.pse.coffee.domain.catalogue.Catalogue;
 import com.pse.coffee.domain.catalogue.CatalogueItem;
-import com.pse.coffee.domain.recipe.Quantity;
-import com.pse.coffee.domain.recipe.Recipe;
 import com.pse.coffee.domain.preparation.Drink;
 import com.pse.coffee.domain.preparation.OrderPreparation;
+import com.pse.coffee.domain.recipe.Quantity;
+import com.pse.coffee.domain.recipe.Recipe;
 import org.joda.money.Money;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 
 import static com.pse.coffee.domain.DrinkName.LATTE;
-import static com.pse.coffee.domain.Ingredient.COFFEE_BEANS;
-import static com.pse.coffee.domain.Ingredient.MILK;
-import static com.pse.coffee.domain.OrderResult.INGREDIENT_MISSING;
-import static com.pse.coffee.domain.OrderResult.OK;
+import static com.pse.coffee.domain.recipe.Ingredient.COFFEE_BEANS;
+import static com.pse.coffee.domain.recipe.Ingredient.MILK;
 import static com.pse.coffee.domain.recipe.Unit.CL;
 import static com.pse.coffee.domain.recipe.Unit.GRAM;
 import static org.assertj.core.api.Assertions.*;
@@ -50,7 +48,11 @@ class OrderingServiceTest {
                 .quantity(1)
                 .build();
 
-        assertThat(service.process(order)).isEqualTo(OK);
+        assertThat(service.process(order)).isEqualTo(Invoice.builder()
+                .drink(LATTE)
+                .quantity(1)
+                .unitCost(Money.of(EUR, 5))
+                .build());
         then(preparation).should(times(1)).prepare(Drink.builder()
                 .name(LATTE)
                 .recipe(Recipe.builder()
@@ -79,7 +81,11 @@ class OrderingServiceTest {
                 .quantity(2)
                 .build();
 
-        assertThat(service.process(order)).isEqualTo(OK);
+        assertThat(service.process(order)).isEqualTo(Invoice.builder()
+                .drink(LATTE)
+                .quantity(2)
+                .unitCost(Money.of(EUR, 5))
+                .build());
         then(preparation).should(times(2)).prepare(Drink.builder()
                 .name(LATTE)
                 .recipe(Recipe.builder()
@@ -108,7 +114,9 @@ class OrderingServiceTest {
                 .quantity(1)
                 .build();
 
-        assertThat(service.process(order)).isEqualTo(INGREDIENT_MISSING);
+        assertThatExceptionOfType(UnavailableIngredientException.class)
+                .isThrownBy(() -> service.process(order))
+                .withMessage("Unavailable ingredient: %s", MILK);
         then(preparation).should(never()).prepare(any(Drink.class));
     }
 

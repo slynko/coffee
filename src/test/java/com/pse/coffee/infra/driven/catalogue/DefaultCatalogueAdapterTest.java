@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 
 import static com.pse.coffee.domain.DrinkName.ESPRESSO;
 import static com.pse.coffee.domain.DrinkName.LATTE;
-import static com.pse.coffee.domain.Ingredient.COFFEE_BEANS;
-import static com.pse.coffee.domain.Ingredient.MILK;
+import static com.pse.coffee.domain.recipe.Ingredient.COFFEE_BEANS;
+import static com.pse.coffee.domain.recipe.Ingredient.MILK;
 import static com.pse.coffee.domain.recipe.Unit.CL;
 import static com.pse.coffee.domain.recipe.Unit.GRAM;
 import static com.pse.commons.HexagonalArchitectureConditions.aRightAdapter;

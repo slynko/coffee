@@ -1,14 +1,16 @@
 package com.pse.coffee.infra.driving.order;
 
 import com.pse.coffee.domain.CustomerOrderHandler;
+import com.pse.coffee.domain.Invoice;
 import com.pse.coffee.domain.Order;
+import org.joda.money.Money;
 import org.junit.jupiter.api.Test;
 
 import static com.pse.coffee.domain.DrinkName.ESPRESSO;
-import static com.pse.coffee.domain.OrderResult.OK;
 import static com.pse.commons.HexagonalArchitectureConditions.aLeftAdapter;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatNullPointerException;
+import static org.joda.money.CurrencyUnit.EUR;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 
@@ -29,9 +31,14 @@ class CustomerOrderControllerTest {
                 .drink(ESPRESSO)
                 .quantity(2)
                 .build();
-        given(service.process(order)).willReturn(OK);
+        final Invoice invoice = Invoice.builder()
+                .drink(ESPRESSO)
+                .quantity(2)
+                .unitCost(Money.of(EUR, 10))
+                .build();
+        given(service.process(order)).willReturn(invoice);
 
-        assertThat(adapter.processOrder(order)).isEqualTo("OK");
+        assertThat(adapter.processOrder(order)).isEqualTo(invoice);
     }
 
     @Test

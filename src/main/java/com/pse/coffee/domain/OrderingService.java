@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Map;
+
 import static java.util.stream.IntStream.range;
 
 @Slf4j
@@ -18,18 +20,19 @@ public final class OrderingService implements CustomerOrderHandler {
     private final Stock stock;
     private final Catalogue catalogue;
 
-    public OrderResult process(@NonNull final Order order) {
+    public Invoice process(@NonNull final Order order) {
         log.info("Domain: Start order processing: {}", order);
 
         final DrinkName drink = order.getDrink();
         final CatalogueItem catalogueItem = catalogue.find(drink)
                 .orElseThrow(() -> new UnknownDrinkException(drink));
-        final boolean ingredientsAreMissing = catalogueItem.getRecipe().getIngredients().entrySet().stream()
-                .anyMatch(ingredient -> !stock.hasEnoughOf(ingredient.getKey(), ingredient.getValue().times(order.getQuantity())));
+        catalogueItem.getRecipe().getIngredients().entrySet().stream()
+                .filter(ingredient -> !stock.hasEnoughOf(ingredient.getKey(), ingredient.getValue().multipliedBy(order.getQuantity())))
+                .map(Map.Entry::getKey)
+                .findAny().ifPresent(missingIngredient -> {
+            throw new UnavailableIngredientException(missingIngredient);
+        });
 
-        if (ingredientsAreMissing) {
-            return OrderResult.INGREDIENT_MISSING;
-        }
         range(0, order.getQuantity()).forEach(any ->
                 preparation.prepare(Drink.builder()
                         .name(order.getDrink())
@@ -38,6 +41,10 @@ public final class OrderingService implements CustomerOrderHandler {
                         .build())
         );
         log.info("Domain: Finish order processing: {}", order);
-        return OrderResult.OK;
+        return Invoice.builder()
+                .drink(order.getDrink())
+                .quantity(order.getQuantity())
+                .unitCost(catalogueItem.getUnitCost())
+                .build();
     }
 }

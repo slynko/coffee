@@ -1,6 +1,7 @@
 package com.pse.coffee.infra.driving.order;
 
 import com.pse.coffee.domain.CustomerOrderHandler;
+import com.pse.coffee.domain.Invoice;
 import com.pse.coffee.domain.Order;
 import com.pse.commons.HexagonalArchitecture;
 import lombok.AllArgsConstructor;
@@ -15,8 +16,8 @@ import org.springframework.stereotype.Service;
 public final class CustomerOrderController {
     private final CustomerOrderHandler userCommand;
 
-    public String processOrder(@NonNull final Order order) {
+    public Invoice processOrder(@NonNull final Order order) {
         log.info("Left Adapter: Start order processing: {}", order);
-        return userCommand.process(order).name();
+        return userCommand.process(order);
     }
 }

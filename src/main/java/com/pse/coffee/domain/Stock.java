@@ -1,5 +1,6 @@
 package com.pse.coffee.domain;
 
+import com.pse.coffee.domain.recipe.Ingredient;
 import com.pse.coffee.domain.recipe.Quantity;
 import com.pse.commons.HexagonalArchitecture;
 

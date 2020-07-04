@@ -1,8 +1,10 @@
 package com.pse.coffee;
 
+import com.pse.coffee.domain.Invoice;
 import com.pse.coffee.domain.Order;
 import com.pse.coffee.infra.SpringContextConfiguration;
 import com.pse.coffee.infra.driving.order.CustomerOrderController;
+import org.joda.money.Money;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import static com.pse.coffee.domain.DrinkName.LATTE;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.joda.money.CurrencyUnit.EUR;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = {SpringContextConfiguration.class})
@@ -21,12 +24,14 @@ class AppTest {
 
     @Test
     void appTest() {
-        final String result = userCommandHandler.processOrder(Order.builder()
+        final Order order = Order.builder()
                 .drink(LATTE)
                 .quantity(1)
                 .personName("John")
-                .build());
+                .build();
+        final Money expectedCost = Money.of(EUR, 5.);
+        final Invoice invoice = userCommandHandler.processOrder(order);
 
-        assertThat(result).isEqualTo("OK");
+        assertThat(invoice.getTotalCost()).isEqualTo(expectedCost);
     }
 }

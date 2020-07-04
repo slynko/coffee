@@ -1,6 +1,5 @@
 package com.pse.coffee.domain.recipe;
 
-import com.pse.coffee.domain.Ingredient;
 import lombok.Builder;
 import lombok.NonNull;
 import lombok.Singular;
