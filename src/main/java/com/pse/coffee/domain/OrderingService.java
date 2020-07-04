@@ -3,7 +3,7 @@ package com.pse.coffee.domain;
 import com.pse.coffee.domain.catalogue.Catalogue;
 import com.pse.coffee.domain.catalogue.CatalogueItem;
 import com.pse.coffee.domain.preparation.Drink;
-import com.pse.coffee.domain.preparation.OrderPreparation;
+import com.pse.coffee.domain.preparation.DrinkPreparation;
 import com.pse.coffee.domain.recipe.Ingredient;
 import com.pse.coffee.domain.recipe.Quantity;
 import com.pse.coffee.domain.recipe.Recipe;
@@ -19,7 +19,7 @@ import static java.util.stream.IntStream.range;
 @AllArgsConstructor
 public final class OrderingService implements CustomerOrderHandler {
 
-    private final OrderPreparation preparation;
+    private final DrinkPreparation preparation;
     private final Stock stock;
     private final Catalogue catalogue;
 

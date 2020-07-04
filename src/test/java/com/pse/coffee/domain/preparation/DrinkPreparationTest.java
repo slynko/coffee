@@ -1,16 +1,15 @@
-package com.pse.coffee.domain;
+package com.pse.coffee.domain.preparation;
 
-import com.pse.coffee.domain.preparation.OrderPreparation;
 import org.junit.jupiter.api.Test;
 
 import static com.pse.commons.HexagonalArchitectureConditions.aDrivenPort;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class OrderPreparationTest {
+class DrinkPreparationTest {
 
     @Test
     void should_be_a_driven_port() {
-        assertThat(OrderPreparation.class).is(aDrivenPort());
+        assertThat(DrinkPreparation.class).is(aDrivenPort());
     }
 
 }

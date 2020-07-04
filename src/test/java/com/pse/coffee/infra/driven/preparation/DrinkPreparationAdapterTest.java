@@ -6,13 +6,13 @@ import static com.pse.commons.HexagonalArchitectureConditions.aRightAdapter;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatNullPointerException;
 
-class OrderPreparationAdapterTest {
+class DrinkPreparationAdapterTest {
 
-    private final OrderPreparationAdapter adapter = new OrderPreparationAdapter();
+    private final DrinkPreparationAdapter adapter = new DrinkPreparationAdapter();
 
     @Test
     void should_be_a_right_adapter() {
-        assertThat(OrderPreparationAdapter.class).is(aRightAdapter());
+        assertThat(DrinkPreparationAdapter.class).is(aRightAdapter());
     }
 
     @Test

@@ -5,6 +5,6 @@ import com.pse.commons.HexagonalArchitecture;
 import static com.pse.commons.HexagonalArchitecture.Port.Type.DRIVEN;
 
 @HexagonalArchitecture.Port(DRIVEN)
-public interface OrderPreparation {
+public interface DrinkPreparation {
     void prepare(Drink drink);
 }

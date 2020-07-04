@@ -3,7 +3,7 @@ package com.pse.coffee.domain;
 import com.pse.coffee.domain.catalogue.Catalogue;
 import com.pse.coffee.domain.catalogue.CatalogueItem;
 import com.pse.coffee.domain.preparation.Drink;
-import com.pse.coffee.domain.preparation.OrderPreparation;
+import com.pse.coffee.domain.preparation.DrinkPreparation;
 import com.pse.coffee.domain.recipe.Quantity;
 import com.pse.coffee.domain.recipe.Recipe;
 import org.joda.money.Money;
@@ -25,7 +25,7 @@ import static org.mockito.Mockito.*;
 
 class OrderingServiceTest {
 
-    private final OrderPreparation preparation = mock(OrderPreparation.class);
+    private final DrinkPreparation preparation = mock(DrinkPreparation.class);
     private final Stock stock = mock(Stock.class);
     private final Catalogue catalogue = mock(Catalogue.class);
     private final OrderingService service = new OrderingService(preparation, stock, catalogue);
