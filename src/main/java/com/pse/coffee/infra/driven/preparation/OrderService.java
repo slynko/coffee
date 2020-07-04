@@ -1,4 +1,4 @@
-package com.pse.coffee.infra.driven;
+package com.pse.coffee.infra.driven.preparation;
 
 import com.pse.coffee.domain.OrderPreparation;
 import com.pse.coffee.domain.PreparationDemand;

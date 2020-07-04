@@ -1,4 +1,4 @@
-package com.pse.coffee.infra.driving;
+package com.pse.coffee.infra.driving.order;
 
 import com.pse.coffee.domain.CommandHandler;
 import com.pse.coffee.domain.PreparationDemand;

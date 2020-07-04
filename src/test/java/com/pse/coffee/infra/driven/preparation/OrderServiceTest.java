@@ -1,4 +1,4 @@
-package com.pse.coffee.infra.driven;
+package com.pse.coffee.infra.driven.preparation;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package com.pse.coffee.infra.driven;
+package com.pse.coffee.infra.driven.stock;
 
 import com.pse.coffee.domain.catalogue.Quantity;
 import org.junit.jupiter.api.Test;

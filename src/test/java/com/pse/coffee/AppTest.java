@@ -2,7 +2,7 @@ package com.pse.coffee;
 
 import com.pse.coffee.domain.PreparationDemand;
 import com.pse.coffee.infra.SpringContextConfiguration;
-import com.pse.coffee.infra.driving.UserCommandHandler;
+import com.pse.coffee.infra.driving.order.UserCommandHandler;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;

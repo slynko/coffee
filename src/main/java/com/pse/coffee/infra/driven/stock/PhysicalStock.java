@@ -1,4 +1,4 @@
-package com.pse.coffee.infra.driven;
+package com.pse.coffee.infra.driven.stock;
 
 import com.pse.coffee.domain.Ingredient;
 import com.pse.coffee.domain.Stock;

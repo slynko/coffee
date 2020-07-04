@@ -1,4 +1,4 @@
-package com.pse.coffee.infra.driven;
+package com.pse.coffee.infra.driven.catalogue;
 
 import com.pse.coffee.domain.Catalogue;
 import com.pse.coffee.domain.DrinkName;
