@@ -1,13 +1,13 @@
-package com.pse.coffee.domain;
+package com.pse.coffee.domain.catalogue;
 
-import com.pse.coffee.domain.catalogue.CatalogueItem;
+import com.pse.coffee.domain.DrinkName;
 import com.pse.commons.HexagonalArchitecture;
+
+import java.util.Optional;
 
 import static com.pse.commons.HexagonalArchitecture.Port.Type.DRIVEN;
 
 @HexagonalArchitecture.Port(DRIVEN)
 public interface Catalogue {
-
-    CatalogueItem getItemFor(final DrinkName drink);
-
+    Optional<CatalogueItem> find(DrinkName drink);
 }

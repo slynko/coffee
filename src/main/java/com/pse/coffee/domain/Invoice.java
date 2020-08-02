@@ -1,7 +1,5 @@
-package com.pse.coffee.domain.catalogue;
+package com.pse.coffee.domain;
 
-import com.pse.coffee.domain.DrinkName;
-import com.pse.coffee.domain.recipe.Recipe;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NonNull;
@@ -13,8 +11,13 @@ import static lombok.AccessLevel.PRIVATE;
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
-public class CatalogueItem {
+public class Invoice {
+
     @NonNull DrinkName drink;
+    int quantity;
     @NonNull Money unitCost;
-    @NonNull Recipe recipe;
+
+    public Money getTotalCost() {
+        return unitCost.multipliedBy(quantity);
+    }
 }
