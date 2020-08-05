@@ -20,7 +20,6 @@ public final class HexagonalArchitectureRules {
     @ArchTest
     private static final ArchRule isolated_domain = classes().that().resideInAPackage("..domain..")
             .should().onlyDependOnClassesThat().resideInAnyPackage(
-                    "", // Enum inherited methods and Arrays are in the default package :'(
                     "java..",
                     "org.slf4j",
                     "..domain..",
