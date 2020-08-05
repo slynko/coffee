@@ -21,11 +21,11 @@ public final class HexagonalArchitectureRules {
     private static final ArchRule isolated_domain = classes().that().resideInAPackage("..domain..")
             .should().onlyDependOnClassesThat().resideInAnyPackage(
                     "java..",
+                    "lombok",
+                    "org.joda.money",
                     "org.slf4j",
-                    "..domain..",
-                    "com.pse.commons.architecture",
-                    "org.joda.money..",
-                    "lombok.."
+                    "com.pse..domain..",
+                    "com.pse.commons.architecture"
             )
             .as("The domain of the hexagon should not depend on infrastructure and technology")
             .because("business rules and technology have distinct lifecycles." +
