@@ -1,4 +1,4 @@
-package com.pse.commons;
+package com.pse.commons.architecture;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
@@ -30,7 +30,8 @@ public final class HexagonalArchitecture {
     @Retention(RUNTIME)
     @Target(TYPE_USE)
     public @interface Port {
-        enum Type { DRIVING, DRIVEN }
+        enum Type {DRIVING, DRIVEN}
+
         Type value();
     }
 

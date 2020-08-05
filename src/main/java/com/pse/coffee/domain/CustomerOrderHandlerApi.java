@@ -1,8 +1,8 @@
 package com.pse.coffee.domain;
 
-import com.pse.commons.HexagonalArchitecture;
+import com.pse.commons.architecture.HexagonalArchitecture;
 
-import static com.pse.commons.HexagonalArchitecture.Port.Type.DRIVING;
+import static com.pse.commons.architecture.HexagonalArchitecture.Port.Type.DRIVING;
 
 @HexagonalArchitecture.Port(DRIVING)
 public interface CustomerOrderHandlerApi {

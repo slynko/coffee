@@ -1,9 +1,9 @@
 package com.pse.coffee.infra.driven.stock;
 
-import com.pse.coffee.domain.recipe.Ingredient;
 import com.pse.coffee.domain.StockSpi;
+import com.pse.coffee.domain.recipe.Ingredient;
 import com.pse.coffee.domain.recipe.Quantity;
-import com.pse.commons.HexagonalArchitecture;
+import com.pse.commons.architecture.HexagonalArchitecture;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

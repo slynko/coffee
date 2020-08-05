@@ -1,11 +1,11 @@
-package com.pse.commons;
+package com.pse.commons.architecture;
 
 import org.assertj.core.api.Condition;
 
 import java.lang.reflect.Modifier;
 
-import static com.pse.commons.HexagonalArchitecture.Port.Type.DRIVEN;
-import static com.pse.commons.HexagonalArchitecture.Port.Type.DRIVING;
+import static com.pse.commons.architecture.HexagonalArchitecture.Port.Type.DRIVEN;
+import static com.pse.commons.architecture.HexagonalArchitecture.Port.Type.DRIVING;
 
 public class HexagonalArchitectureConditions {
 

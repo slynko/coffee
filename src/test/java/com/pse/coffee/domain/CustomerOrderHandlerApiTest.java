@@ -2,7 +2,7 @@ package com.pse.coffee.domain;
 
 import org.junit.jupiter.api.Test;
 
-import static com.pse.commons.HexagonalArchitectureConditions.aDrivingPort;
+import static com.pse.commons.architecture.HexagonalArchitectureConditions.aDrivingPort;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CustomerOrderHandlerApiTest {

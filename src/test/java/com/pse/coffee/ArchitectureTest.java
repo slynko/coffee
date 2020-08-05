@@ -1,6 +1,6 @@
 package com.pse.coffee;
 
-import com.pse.commons.HexagonalArchitectureRules;
+import com.pse.commons.architecture.HexagonalArchitectureRules;
 import com.tngtech.archunit.core.importer.ImportOption;
 import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchRules;

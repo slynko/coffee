@@ -1,7 +1,7 @@
 package com.pse.coffee.infra.driving.order;
 
 import com.pse.coffee.domain.CustomerOrderHandlerApi;
-import com.pse.commons.HexagonalArchitecture;
+import com.pse.commons.architecture.HexagonalArchitecture;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

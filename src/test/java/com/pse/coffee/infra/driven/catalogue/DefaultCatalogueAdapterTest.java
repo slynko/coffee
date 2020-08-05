@@ -12,7 +12,7 @@ import static com.pse.coffee.domain.recipe.Ingredient.COFFEE_BEANS;
 import static com.pse.coffee.domain.recipe.Ingredient.MILK;
 import static com.pse.coffee.domain.recipe.Unit.CL;
 import static com.pse.coffee.domain.recipe.Unit.GRAM;
-import static com.pse.commons.HexagonalArchitectureConditions.aRightAdapter;
+import static com.pse.commons.architecture.HexagonalArchitectureConditions.aRightAdapter;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatNullPointerException;
 import static org.joda.money.CurrencyUnit.EUR;

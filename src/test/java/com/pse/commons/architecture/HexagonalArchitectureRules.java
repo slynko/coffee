@@ -1,4 +1,4 @@
-package com.pse.commons;
+package com.pse.commons.architecture;
 
 import com.tngtech.archunit.base.DescribedPredicate;
 import com.tngtech.archunit.core.domain.JavaAccess;
@@ -24,7 +24,7 @@ public final class HexagonalArchitectureRules {
                     "java..",
                     "org.slf4j",
                     "..domain..",
-                    "com.pse.commons",
+                    "com.pse.commons.architecture",
                     "org.joda.money..",
                     "lombok.."
             )

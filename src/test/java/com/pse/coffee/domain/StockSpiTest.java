@@ -2,7 +2,7 @@ package com.pse.coffee.domain;
 
 import org.junit.jupiter.api.Test;
 
-import static com.pse.commons.HexagonalArchitectureConditions.aDrivenPort;
+import static com.pse.commons.architecture.HexagonalArchitectureConditions.aDrivenPort;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class StockSpiTest {

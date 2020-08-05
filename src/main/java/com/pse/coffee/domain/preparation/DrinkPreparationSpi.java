@@ -1,8 +1,8 @@
 package com.pse.coffee.domain.preparation;
 
-import com.pse.commons.HexagonalArchitecture;
+import com.pse.commons.architecture.HexagonalArchitecture;
 
-import static com.pse.commons.HexagonalArchitecture.Port.Type.DRIVEN;
+import static com.pse.commons.architecture.HexagonalArchitecture.Port.Type.DRIVEN;
 
 @HexagonalArchitecture.Port(DRIVEN)
 public interface DrinkPreparationSpi {
