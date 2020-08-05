@@ -1,6 +1,6 @@
 package com.pse.coffee.infra.driving.order;
 
-import com.pse.coffee.domain.CustomerOrderHandler;
+import com.pse.coffee.domain.CustomerOrderHandlerApi;
 import com.pse.coffee.domain.Invoice;
 import org.joda.money.Money;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,7 @@ import static org.mockito.Mockito.mock;
 
 class CustomerOrderControllerTest {
 
-    private final CustomerOrderHandler customerOrderHandler = mock(CustomerOrderHandler.class);
+    private final CustomerOrderHandlerApi customerOrderHandler = mock(CustomerOrderHandlerApi.class);
     private final CustomerOrderController adapter = new CustomerOrderController(customerOrderHandler);
 
     @Test

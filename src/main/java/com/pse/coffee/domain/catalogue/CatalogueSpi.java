@@ -8,6 +8,6 @@ import java.util.Optional;
 import static com.pse.commons.HexagonalArchitecture.Port.Type.DRIVEN;
 
 @HexagonalArchitecture.Port(DRIVEN)
-public interface Catalogue {
+public interface CatalogueSpi {
     Optional<CatalogueItem> find(DrinkName drink);
 }

@@ -11,7 +11,7 @@ import static org.joda.money.CurrencyUnit.EUR;
 public final class OrderSteps implements En {
 
     private final World world;
-    private final CustomerOrderHandler customerOrderHandler;
+    private final CustomerOrderHandlerApi customerOrderHandler;
 
     public OrderSteps(final World world,
                       final DrinkPreparationSpyAdapter drinkPreparation,

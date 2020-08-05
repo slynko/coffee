@@ -1,7 +1,7 @@
 package com.pse.coffee.infra.driven.catalogue;
 
 import com.pse.coffee.domain.DrinkName;
-import com.pse.coffee.domain.catalogue.Catalogue;
+import com.pse.coffee.domain.catalogue.CatalogueSpi;
 import com.pse.coffee.domain.catalogue.CatalogueItem;
 import com.pse.commons.HexagonalArchitecture;
 import lombok.NonNull;
@@ -13,7 +13,7 @@ import java.util.Optional;
 @Slf4j
 @Service
 @HexagonalArchitecture.RightAdapter
-public final class DefaultCatalogueAdapter implements Catalogue {
+public final class DefaultCatalogueAdapter implements CatalogueSpi {
 
     @Override
     public Optional<CatalogueItem> find(@NonNull final DrinkName drink) {

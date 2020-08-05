@@ -5,6 +5,6 @@ import com.pse.commons.HexagonalArchitecture;
 import static com.pse.commons.HexagonalArchitecture.Port.Type.DRIVING;
 
 @HexagonalArchitecture.Port(DRIVING)
-public interface CustomerOrderHandler {
+public interface CustomerOrderHandlerApi {
     Invoice process(Order order);
 }
