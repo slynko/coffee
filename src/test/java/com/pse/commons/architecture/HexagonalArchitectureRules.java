@@ -18,7 +18,7 @@ public final class HexagonalArchitectureRules {
     private HexagonalArchitectureRules() {}
 
     @ArchTest
-    private static final ArchRule isolated_domain = classes().that().resideInAPackage("..domain..")
+    public static final ArchRule isolated_domain = classes().that().resideInAPackage("..domain..")
             .should().onlyDependOnClassesThat().resideInAnyPackage(
                     "java..",
                     "lombok",
@@ -32,7 +32,7 @@ public final class HexagonalArchitectureRules {
                     " Modifications to one should have minimal impact on the other.");
 
     @ArchTest
-    private static final ArchRule independent_adapters = slices()
+    public static final ArchRule independent_adapters = slices()
             .matching("..infra.(*)..").namingSlices("adapter '$1'")
             .should().notDependOnEachOther()
             .as("Adapters around the domain of the hexagon should not depend on one another")
