@@ -2,7 +2,7 @@ package com.pse.coffee.infra.driving.cucumber;
 
 import com.pse.coffee.domain.DrinkName;
 import com.pse.coffee.domain.preparation.Drink;
-import com.pse.coffee.domain.preparation.DrinkPreparation;
+import com.pse.coffee.domain.preparation.DrinkPreparationSpi;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import lombok.Value;
@@ -16,7 +16,7 @@ import static java.lang.String.format;
 import static lombok.AccessLevel.PRIVATE;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public final class DrinkPreparationSpyAdapter implements DrinkPreparation {
+public final class DrinkPreparationSpyAdapter implements DrinkPreparationSpi {
 
     private final List<Drink> history = new ArrayList<>();
 

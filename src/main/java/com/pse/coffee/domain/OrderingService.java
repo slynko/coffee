@@ -1,9 +1,9 @@
 package com.pse.coffee.domain;
 
-import com.pse.coffee.domain.catalogue.Catalogue;
+import com.pse.coffee.domain.catalogue.CatalogueSpi;
 import com.pse.coffee.domain.catalogue.CatalogueItem;
 import com.pse.coffee.domain.preparation.Drink;
-import com.pse.coffee.domain.preparation.DrinkPreparation;
+import com.pse.coffee.domain.preparation.DrinkPreparationSpi;
 import com.pse.coffee.domain.recipe.Ingredient;
 import com.pse.coffee.domain.recipe.Quantity;
 import com.pse.coffee.domain.recipe.Recipe;
@@ -17,11 +17,11 @@ import static java.util.stream.IntStream.range;
 
 @Slf4j
 @AllArgsConstructor
-public final class OrderingService implements CustomerOrderHandler {
+public final class OrderingService implements CustomerOrderHandlerApi {
 
-    private final DrinkPreparation preparation;
-    private final Stock stock;
-    private final Catalogue catalogue;
+    private final DrinkPreparationSpi preparation;
+    private final StockSpi stock;
+    private final CatalogueSpi catalogue;
 
     public Invoice process(@NonNull final Order order) {
         log.info("Domain: Start order processing: {}", order);

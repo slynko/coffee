@@ -2,7 +2,7 @@ package com.pse.coffee.infra.driven.preparation;
 
 import org.junit.jupiter.api.Test;
 
-import static com.pse.commons.HexagonalArchitectureConditions.aRightAdapter;
+import static com.pse.commons.architecture.HexagonalArchitectureConditions.aRightAdapter;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatNullPointerException;
 

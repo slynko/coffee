@@ -1,13 +1,13 @@
 package com.pse.coffee.infra.driving.cucumber;
 
-import com.pse.coffee.domain.Stock;
+import com.pse.coffee.domain.StockSpi;
 import com.pse.coffee.domain.recipe.Ingredient;
 import com.pse.coffee.domain.recipe.Quantity;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class InMemoryStockAdapter implements Stock {
+public class InMemoryStockAdapter implements StockSpi {
 
     private final Map<Ingredient, Boolean> ingredients = new ConcurrentHashMap<>();
 
