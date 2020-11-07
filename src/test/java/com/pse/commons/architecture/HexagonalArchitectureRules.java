@@ -18,7 +18,7 @@ public final class HexagonalArchitectureRules {
     private HexagonalArchitectureRules() {}
 
     @ArchTest
-    public static final ArchRule isolated_domain = classes().that().resideInAPackage("..domain..")
+    public static final ArchRule isolated_domain = classes().that().resideInAPackage("com.pse..domain..")
             .should().onlyDependOnClassesThat().resideInAnyPackage(
                     "java..",
                     "lombok",
